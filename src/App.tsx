@@ -19,6 +19,8 @@ let anotações = [
   }
 ]
 
+let createdTasks = anotações.length
+
 export function App () {
   return (
     <div>
@@ -28,7 +30,7 @@ export function App () {
       </header>
 
       <main>
-        <Status />
+        <Status createdTasks= {createdTasks} />
 
         {anotações.map((note) => {
           return <Post content= {note.content} />
