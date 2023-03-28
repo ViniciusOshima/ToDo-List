@@ -6,7 +6,7 @@ export function Input () {
   return (
     <form className={styles.form}>
       <textarea placeholder="Adicione uma nova tarefa"></textarea>
-      <button type='submit'>Criar <PlusCircle/></button>
+      <button type='submit'>Criar <PlusCircle size={20}/></button>
     </form>
   )
 }
