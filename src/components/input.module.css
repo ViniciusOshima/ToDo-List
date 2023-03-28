@@ -18,6 +18,10 @@
   border: 1px solid var(--gray-700);
 
   resize: none;
+
+  color: var(--gray-100);
+  word-spacing: 2px;
+  letter-spacing: 0.5px;
 }
 
 .form button {
