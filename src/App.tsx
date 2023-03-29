@@ -4,36 +4,36 @@ import {Status} from './components/status'
 import {PostWithoutContent} from './components/postWithoutContent'
 import {Post} from './components/post'
 
+import { useState } from 'react'
+
 import './global.css'
 import './app.module.css'
 
-let anotações = [
-  {
-    checked: false,
-    content: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
-  },
-
-  {
-    checked: false,
-    content: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
-  }
-]
-
-let createdTasks = anotações.length
-
 export function App () {
+  const [myTasks, setMyTasks] = useState([])
+
+  const createdTasks = myTasks.length
+
+  function addTasks (task: string) {
+
+    setMyTasks([...myTasks, task])
+    
+
+  }
+
+
   return (
     <div>
       <header>
         <Header />
-        <Input />
+        <Input addTasks= {addTasks}  />
       </header>
 
       <main>
         <Status createdTasks= {createdTasks} />
 
-        {anotações.map((note) => {
-          return <Post content= {note.content} />
+        {myTasks.map((note) => {
+          return <Post content= {note} />
         })}
       </main>
       
