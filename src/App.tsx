@@ -17,8 +17,12 @@ export function App () {
   function addTasks (task: string) {
 
     setMyTasks([...myTasks, task])
-    
+  }
 
+  function deleteTask (task: string) {
+    setMyTasks(myTasks.filter((content) => {
+      return content !== task
+    }))
   }
 
 
@@ -33,7 +37,7 @@ export function App () {
         <Status createdTasks= {createdTasks} />
 
         {myTasks.map((note) => {
-          return <Post content= {note} />
+          return <Post content= {note} deleteTask= {deleteTask} />
         })}
       </main>
       

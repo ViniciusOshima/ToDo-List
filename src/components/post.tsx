@@ -3,9 +3,14 @@ import styles from './post.module.css'
 
 interface ContentProps {
   content: string
+  deleteTask: (content: string) => void
 }
 
-export function Post ({content} :ContentProps) {
+export function Post ({content, deleteTask} :ContentProps) {
+  function handleDeleteTask () {
+    deleteTask(content)
+  }
+
   return (
     <div className={styles.post}>
 
@@ -15,7 +20,7 @@ export function Post ({content} :ContentProps) {
       </label>
 
       <p className={styles.content}>{content}</p>
-      <button className={styles.deleteNote}><Trash size={20} /></button>
+      <button onClick={handleDeleteTask} className={styles.deleteNote}><Trash size={20} /></button>
     </div>
   )
 }

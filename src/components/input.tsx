@@ -12,7 +12,6 @@ export function Input ({addTasks}:AddTasksProps) {
 
   function handleNewTaskChange (event: ChangeEvent<HTMLTextAreaElement>) {
     setTaskChange(event.target.value)
-    console.log(taskChange)
   }
 
   function handleNewTask (event: FormEvent) {

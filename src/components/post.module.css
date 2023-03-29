@@ -71,3 +71,7 @@
 
   border: none;
 }
+
+.deleteNote:hover {
+  color: var(--danger);
+}
