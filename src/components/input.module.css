@@ -43,3 +43,8 @@
   font-weight: bold;
   font-size: 0.875rem;
 }
+
+.form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
