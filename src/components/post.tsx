@@ -4,23 +4,30 @@ import styles from './post.module.css'
 interface ContentProps {
   content: string
   deleteTask: (content: string) => void
+  id: string
+  checkedTasks: (id: string) => void
 }
 
-export function Post ({content, deleteTask} :ContentProps) {
-  function handleDeleteTask () {
-    deleteTask(content)
+export function Post({ content, deleteTask, id, checkedTasks }: ContentProps) {
+  function handleDeleteTask() {
+    deleteTask(id)
+  }
+
+  function handleChecked() {
+    checkedTasks(id)
   }
 
   return (
     <div className={styles.post}>
-
       <label className={styles.container}>
-        <input checked={undefined} type="checkbox" />
+        <input onClick={handleChecked} checked={undefined} type="checkbox" />
         <div className={styles.checkmark}></div>
       </label>
 
       <p className={styles.content}>{content}</p>
-      <button onClick={handleDeleteTask} className={styles.deleteNote}><Trash size={20} /></button>
+      <button onClick={handleDeleteTask} className={styles.deleteNote}>
+        <Trash size={20} />
+      </button>
     </div>
   )
 }
