@@ -1,14 +1,17 @@
 import { Trash } from 'phosphor-react'
 import styles from './post.module.css'
+import { MyTasksProps } from '../App'
 
 interface ContentProps {
   content: string
   deleteTask: (content: string) => void
   id: string
   checkedTasks: (id: string) => void
+  myTasks: MyTasksProps[]
+  isCompleted: boolean
 }
 
-export function Post({ content, deleteTask, id, checkedTasks }: ContentProps) {
+export function Post({ content, deleteTask, id, checkedTasks, myTasks, isCompleted }: ContentProps) {
   function handleDeleteTask() {
     deleteTask(id)
   }
@@ -24,7 +27,9 @@ export function Post({ content, deleteTask, id, checkedTasks }: ContentProps) {
         <div className={styles.checkmark}></div>
       </label>
 
-      <p className={styles.content}>{content}</p>
+      {isCompleted ? <p className={styles.contentCompleted}>{content}</p> : <p className={styles.content}>{content}</p>}
+
+
       <button onClick={handleDeleteTask} className={styles.deleteNote}>
         <Trash size={20} />
       </button>

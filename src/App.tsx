@@ -8,12 +8,16 @@ import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import './global.css'
-import './app.module.css'
+import styles from './app.module.css'
+
+export interface MyTasksProps {
+  title: string
+  isCompleted: boolean
+  id: string
+}
 
 export function App() {
-  const [myTasks, setMyTasks] = useState([
-    { title: 'hellooo', isCompleted: false, id: uuidv4() }
-  ])
+  const [myTasks, setMyTasks] = useState<MyTasksProps[]>([])
 
   const createdTasks = myTasks.length
 
@@ -66,17 +70,23 @@ export function App() {
           taskCheckedWithCreated={taskCheckedWithCreated}
         />
 
-        {myTasks.map(note => {
-          return (
-            <Post
-              content={note.title}
-              id={note.id}
-              key={note.id}
-              deleteTask={deleteTask}
-              checkedTasks={checked}
-            />
-          )
-        })}
+        <div className={styles.postContainer}>
+          {myTasks.length === 0 ? <PostWithoutContent /> :
+            myTasks.map(note => {
+              return (
+                <Post
+                  content={note.title}
+                  id={note.id}
+                  key={note.id}
+                  deleteTask={deleteTask}
+                  checkedTasks={checked}
+                  myTasks={myTasks}
+                  isCompleted={note.isCompleted}
+                />
+              )
+            })
+          }
+        </div>
       </main>
     </div>
   )
