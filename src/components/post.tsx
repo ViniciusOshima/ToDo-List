@@ -11,7 +11,7 @@ interface ContentProps {
   isCompleted: boolean
 }
 
-export function Post({ content, deleteTask, id, checkedTasks, myTasks, isCompleted }: ContentProps) {
+export function Post({ content, deleteTask, id, checkedTasks, isCompleted }: ContentProps) {
   function handleDeleteTask() {
     deleteTask(id)
   }
@@ -21,7 +21,7 @@ export function Post({ content, deleteTask, id, checkedTasks, myTasks, isComplet
   }
 
   return (
-    <div className={styles.post}>
+    <div className={isCompleted ? styles.postWithotBorder : styles.post}>
       <label className={styles.container}>
         <input onClick={handleChecked} checked={undefined} type="checkbox" />
         <div className={styles.checkmark}></div>
