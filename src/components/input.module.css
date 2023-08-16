@@ -24,6 +24,11 @@
   letter-spacing: 0.5px;
 }
 
+.form textarea:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 2px #5E60CE;
+}
+
 .form button {
   background-color: var(--blueDark);
 
@@ -42,6 +47,10 @@
 
   font-weight: bold;
   font-size: 0.875rem;
+}
+
+.form button:not(:disabled):hover {
+  background-color: var(--blue);
 }
 
 .form button:disabled {

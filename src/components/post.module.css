@@ -103,8 +103,13 @@
   cursor: pointer;
 
   border: none;
+  border-radius: 4px;
+
+  display: flex;
+  padding: 4px;
 }
 
 .deleteNote:hover {
   color: var(--danger);
+  background-color: var(--gray-400);
 }
