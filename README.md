@@ -1,6 +1,8 @@
 # ToDo-List
 ### Desafio do módulo 1 da trilha ReactJS do curso Ignite da Rocketseat
 
+![image](https://github.com/ViniciusOshima/ToDo-List/assets/105689421/3ff1fa9e-a5a3-4223-9175-9cbb7dc40406)
+
 > STATUS: Terminado ✅
 
 O desafio consiste em desenvolver uma aplicação de controle de tarefas no estilo to-do list, contendo seguintes funcionalidades:
